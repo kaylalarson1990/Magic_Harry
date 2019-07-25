@@ -1,6 +1,22 @@
 .characterCard {
-    border-radius: 5px;
-    background-color: teal;
-    height: auto;
+    align-items: center;
+    background-color: white;
+    border: .5px solid #EBECEC;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans';
+    height: 200px;
+    margin: 15px;
     width: 300px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.favorite-btn {
+    margin-top: 10px;
+    width: 35px;
 }
