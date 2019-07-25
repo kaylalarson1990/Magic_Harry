@@ -4,11 +4,11 @@ import App from "./App/App";
 import { Provider } from "react-redux";
 
 const Root = ({ store }) => (
-    <Provider store={store}>
-        <Router>
-            <Route path="/" component={App} />
-        </Router>
-    </Provider>
-)
+  <Provider store={store}>
+    <Router>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>
+);
 
 export default Root;

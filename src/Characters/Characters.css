@@ -1,5 +1,6 @@
 .characterCard {
     border-radius: 5px;
-    height: 300px;
-    width: auto;
+    background-color: teal;
+    height: auto;
+    width: 300px;
 }

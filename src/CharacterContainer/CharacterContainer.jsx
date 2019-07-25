@@ -14,7 +14,7 @@ class CharacterContainer extends Component {
   }
   componentDidMount() {
     harryPotterCharacters()
-      .then(data => console.log(data))
+      .then(data => data)
       .then(characters => this.props.setCharacters(characters))
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
@@ -23,7 +23,6 @@ class CharacterContainer extends Component {
     const { characters } = this.props;
     const displayCharacters = characters.map(character => (
       <Characters
-        {...character}
         key={character.id}
         name={character.name}
         house={character.house}
