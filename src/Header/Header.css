@@ -20,16 +20,9 @@ body {
     color: black;
     display: block;
     line-height: 3em;
-    padding: 1em 3em;
+    padding: 1em 1em;
     text-decoration: none;
   }
   nav ul li:first-child {
     margin-right: auto;
-  }
-  .logo {
-    width: 200px;
-    margin: 0;
-  }
-  nav ul li a:hover {
-    background-color: blue;
   }
