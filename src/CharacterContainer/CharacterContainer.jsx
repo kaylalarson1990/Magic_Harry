@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "./CharacterContainer.scss";
 import { harryPotterCharacters } from "../apiCalls/apiCalls";
 import Characters from "../Characters/Characters.jsx";
-import { setCharacters } from '../actions/index'
+import { setCharacters } from "../actions/index";
 import PropTypes from "prop-types";
 
 class CharacterContainer extends Component {
@@ -31,7 +32,15 @@ class CharacterContainer extends Component {
         species={character.species}
       />
     ));
-    return <section>{displayCharacters}</section>;
+    return (
+      <>
+        <article>
+          <h2 className="title">Harry Potter Characters</h2>
+          <input class="search__input" type="text" placeholder="Search" />
+        </article>
+        <section className="characters">{displayCharacters}</section>
+      </>
+    );
   }
 }
 
@@ -48,4 +57,7 @@ CharacterContainer.propTypes = {
   setCharacters: PropTypes.array
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CharacterContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CharacterContainer);
