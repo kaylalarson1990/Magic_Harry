@@ -3,7 +3,7 @@ import "./App.css";
 import { Header } from "../Header/Header";
 import CharacterContainer from "../CharacterContainer/CharacterContainer";
 import { MainContainer } from "../MainContainer/MainContainer";
-import { HouseContainer } from "../HouseContainer/HouseContainer";
+import HouseContainer from "../HouseContainer/HouseContainer";
 import { SpellContainer } from "../SpellContainer/SpellContainer";
 import { Route, Switch } from "react-router-dom";
 

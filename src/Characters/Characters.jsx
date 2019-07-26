@@ -4,7 +4,7 @@ import inactive from "../images/inactive.png";
 import active from "../images/active.png";
 import "./Characters.css";
 
-class Characters extends Component {
+export class Characters extends Component {
   constructor() {
     super();
     this.state = {

@@ -1,6 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`App should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <Header />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.memo),
+          "WrappedComponent": [Function],
+          "compare": null,
+          "displayName": "Connect(CharacterContainer)",
+          "type": [Function],
+        }
+      }
+      exact={true}
+      path="/characters"
+    />
+    <Route
+      exact={true}
+      path="/houses"
+    />
+    <Route
+      exact={true}
+      path="/spells"
+    />
+  </Switch>
+</div>
+`;
 
 exports[`App should render people home page 1`] = `
 <React.Fragment>
