@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`App should render people home page 1`] = `
+<React.Fragment>
+  <MainContainer />
+</React.Fragment>
+`;
