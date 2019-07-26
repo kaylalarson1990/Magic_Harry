@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterContainer should match snapshot 1`] = `
+<Fragment>
+  <article>
+    <h2
+      className="title"
+    >
+      Harry Potter Characters
+    </h2>
+    <input
+      class="search__input"
+      placeholder="Search"
+      type="text"
+    />
+  </article>
+  <section
+    className="characters"
+  >
+    <Characters
+      house="KlioPold"
+      key="1"
+      name="Kayla"
+      role="student"
+      school="Turing"
+      species="human"
+    />
+  </section>
+</Fragment>
+`;

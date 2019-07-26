@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
-import Root from './Root.js';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import rootReducer from './reducers';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import Root from "./Root.js";
+import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import rootReducer from "./reducers";
 
 const store = createStore(rootReducer, composeWithDevTools());
 

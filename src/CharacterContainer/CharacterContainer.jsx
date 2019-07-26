@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./CharacterContainer.scss";
+import "../HouseContainer/Container.scss";
 import { harryPotterCharacters } from "../apiCalls/apiCalls";
 import Characters from "../Characters/Characters.jsx";
 import { setCharacters } from "../actions/index";
 import PropTypes from "prop-types";
 
-class CharacterContainer extends Component {
+export class CharacterContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -36,7 +36,7 @@ class CharacterContainer extends Component {
       <>
         <article>
           <h2 className="title">Harry Potter Characters</h2>
-          <input class="search__input" type="text" placeholder="Search" />
+          <input className="search__input" type="text" placeholder="Search" />
         </article>
         <section className="characters">{displayCharacters}</section>
       </>
@@ -44,17 +44,17 @@ class CharacterContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   characters: state.characters
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setCharacters: characters => dispatch(setCharacters(characters))
 });
 
 CharacterContainer.propTypes = {
   characters: PropTypes.object,
-  setCharacters: PropTypes.array
+  setCharacters: PropTypes.func
 };
 
 export default connect(

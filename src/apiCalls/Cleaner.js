@@ -8,3 +8,16 @@ export const cleanCharacters = (characters) => {
         species: character.species
     }))
 }
+
+export const cleanHouses = (houses) => {
+    return houses.map(house => ({
+        id: house._id,
+        name: house.name,
+        mascot: house.mascot,
+        headOfHouse: house.headOfHouse,
+        houseGhost: house.houseGhost,
+        founder: house.founder,
+        school: house.school,
+        members: house.members
+    }))
+}
