@@ -64,7 +64,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 HouseContainer.propTypes = {
-  houses: PropTypes.object,
+  houses: PropTypes.array,
   setHouses: PropTypes.func
 };
 
