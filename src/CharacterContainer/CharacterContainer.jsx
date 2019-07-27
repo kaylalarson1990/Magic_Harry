@@ -10,7 +10,8 @@ export class CharacterContainer extends Component {
   constructor() {
     super();
     this.state = {
-      error: ""
+      error: "",
+      filtered: ""
     };
   }
   componentDidMount() {
@@ -20,9 +21,19 @@ export class CharacterContainer extends Component {
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
+  handleChange = (e) => {
+    this.setState({
+      filtered: e.target.value
+    })
+  }
+
   render() {
-    const { characters } = this.props;
-    const displayCharacters = characters.map(character => (
+    let filteredCharacters = this.props.characters.filter(
+      (character) => {
+        return character.name.toLowerCase().indexOf(this.state.filtered) !== -1;
+      }
+    );
+    const displayCharacters = filteredCharacters.map(character => (
       <Characters
         key={character.id}
         name={character.name}
@@ -36,7 +47,7 @@ export class CharacterContainer extends Component {
       <>
         <article>
           <h2 className="title">Harry Potter Characters</h2>
-          <input className="search__input" type="text" placeholder="Search" />
+          <input className="search__input" type="text" value={this.state.filtered} onChange={this.handleChange} placeholder="Search" />
         </article>
         <section className="characters">{displayCharacters}</section>
       </>
