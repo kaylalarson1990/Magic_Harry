@@ -10,7 +10,8 @@ class SpellContainer extends Component {
   constructor() {
     super();
     this.state = {
-      error: ""
+      error: "",
+      filtered: ""
     };
   }
 
@@ -21,9 +22,17 @@ class SpellContainer extends Component {
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
+  handleChange = (e) => {
+    this.setState({
+      filtered: e.target.value
+    })
+  }
+
   render() {
-    const { spells } = this.props;
-    const displaySpells = spells.map(spell => (
+    let filteredSpells = this.props.spells.filter(spell => {
+      return spell.spell.toLowerCase().indexOf(this.state.filtered) !== -1;
+    });
+    const displaySpells = filteredSpells.map(spell => (
       <Spells
         key={spell.id}
         spell={spell.spell}
@@ -35,7 +44,7 @@ class SpellContainer extends Component {
       <>
         <article>
           <h2 className="title">Harry Potter Spells</h2>
-          <input className="search__input" type="text" placeholder="Search" />
+          <input className="search__input" type="text" value={this.state.filtered} onChange={this.handleChange} placeholder="Search" />
         </article>
         <section className="spells">{displaySpells}</section>
       </>
