@@ -21,3 +21,12 @@ export const cleanHouses = (houses) => {
         members: house.members
     }))
 }
+
+export const cleanSpells = (spells) => {
+    return spells.map(spell => ({
+        id: spell._id,
+        spell: spell.spell,
+        type: spell.type,
+        effect: spell.effect
+    }))
+}

@@ -3,6 +3,7 @@ header {
     padding: 0;
     font-size: 15px;
   }
+  
   nav {
     margin: 0;
     overflow: hidden;
@@ -12,11 +13,17 @@ header {
     padding: 0;
     display: flex;
   }
+
   nav ul li {
     cursor: pointer;
     display: inline-block;
     list-style-type: none;
   }
+
+  nav ul li:hover {
+    font-size: 16px;
+  }
+
   nav ul li a {
     color: black;
     display: block;
@@ -24,6 +31,7 @@ header {
     padding: 1em 1em;
     text-decoration: none;
   }
+
   nav ul li:first-child {
     margin-right: auto;
   }
@@ -33,3 +41,4 @@ header {
       padding: 0;
       width: 80px;
   }
+

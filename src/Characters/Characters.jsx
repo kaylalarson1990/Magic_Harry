@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import ReactCardFlip from "react-card-flip";
 import inactive from "../images/inactive.png";
 import active from "../images/active.png";
 import "./Characters.css";
@@ -9,26 +10,46 @@ export class Characters extends Component {
     super();
     this.state = {
       favorites: false,
+      isFlipped: false,
       error: ""
     };
   }
 
+  addFavorite = () => {
+    this.state.favorited
+      ? this.setState({ favorited: false })
+      : this.setState({ favorited: true });
+  };
+
+  handleClick = e => {
+    e.preventDefault();
+    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+  };
+
   render() {
     const { name, role, house, school, id, species } = this.props;
     return (
-      <article className="characterCard">
-        <h2>{name}</h2>
-        <p>Click for more details</p>
-        {/* <p>{role}</p>
-                <p>{house}</p>
-                <p>{school}</p>
-                <p>{species}</p> */}
-        <img
-          src={this.state.favorited ? active : inactive}
-          alt="favorite icon"
-          className="favorite-btn"
-        />
-      </article>
+      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+        <article className="characterCard" key="front">
+          <h2>{name}</h2>
+          <button onClick={this.handleClick}>
+            Click here for more details
+          </button>
+          <img
+            src={this.state.favorited ? active : inactive}
+            alt="favorite icon"
+            className="favorite-btn"
+            onClick={this.addFavorite}
+          />
+        </article>
+        <article className="characterCard" key="back">
+          <p><span>Role:</span> {role}</p>
+          <p><span>House:</span> {house}</p>
+          <p><span>School:</span> {school}</p>
+          <p><span>Species:</span> {species}</p>
+          <button onClick={this.handleClick}>Return to Front</button>
+        </article>
+      </ReactCardFlip>
     );
   }
 }

@@ -1,4 +1,4 @@
-import { cleanCharacters, cleanHouses } from './Cleaner'
+import { cleanCharacters, cleanHouses, cleanSpells } from './Cleaner'
 
 export const harryPotterCharacters = () => {
     return fetch('https://www.potterapi.com/v1/characters/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO')
@@ -12,4 +12,11 @@ export const harryPotterHouses = () => {
     .then(response => response.json())
     .then(data => cleanHouses(data))
     .catch(error => Error("Error fetching wizard houses"))
+}
+
+export const harryPotterSpells = () => {
+    return fetch('https://www.potterapi.com/v1/spells/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO')
+    .then(response => response.json())
+    .then(data => cleanSpells(data))
+    .catch(error => Error("Error fetching wizard spells"))
 }

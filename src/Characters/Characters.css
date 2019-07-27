@@ -3,10 +3,11 @@
     background-color: white;
     border: .5px solid #EBECEC;
     border-radius: 3px;
+    box-shadow: 2px 2px lightgrey;
     display: flex;
     flex-direction: column;
     font-family: 'Open Sans';
-    height: 200px;
+    height: auto;
     margin: 15px;
     width: 300px;
 }

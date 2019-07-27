@@ -2,7 +2,7 @@
 // @use postcss-nested;
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700,900");
 
-.houses, .characters {
+.houses, .characters, .spells {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -27,9 +27,9 @@
   }
 
   &__input {
-    width: 60%;
+    width: 30%;
     position: absolute;
-    left: 20%;
+    left: 35%;
     padding: 12px 24px;
     background-color: transparent;
     transition: transform 250ms ease-in-out;
