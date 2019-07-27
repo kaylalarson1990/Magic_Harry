@@ -10,7 +10,8 @@ class HouseContainer extends Component {
   constructor() {
     super();
     this.state = {
-      error: ""
+      error: "",
+      filtered: ""
     };
   }
 
@@ -21,9 +22,17 @@ class HouseContainer extends Component {
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
+  handleChange = (e) => {
+    this.setState({
+      filtered: e.target.value
+    })
+  }
+
   render() {
-    const { houses } = this.props;
-    const displayHouses = houses.map(house => (
+    let filteredHouses = this.props.houses.filter(house => {
+      return house.name.toLowerCase().indexOf(this.state.filtered) !== -1;
+    });
+    const displayHouses = filteredHouses.map(house => (
       <Houses
         key={house.id}
         name={house.name}
@@ -38,7 +47,7 @@ class HouseContainer extends Component {
       <>
         <article>
           <h2 className="title">Harry Potter Houses</h2>
-          <input className="search__input" type="text" placeholder="Search" />
+          <input className="search__input" type="text" value={this.state.filtered} onChange={this.handleChange} placeholder="Search" />
         </article>
         <section className="houses">{displayHouses}</section>
       </>
