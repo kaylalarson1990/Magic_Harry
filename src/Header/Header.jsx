@@ -10,7 +10,7 @@ export const Header = () => {
         <ul className="nav">
           <li>
             <a href="#" className="glasses">
-              <NavLink to="/">
+              <NavLink to="/" exact activeClassName="active">
                 <img
                   src={glasses}
                   alt="harry potter glasses"
@@ -21,17 +21,17 @@ export const Header = () => {
           </li>
           <li>
             <a href="#">
-              <NavLink to="/characters">CHARACTERS</NavLink>
+              <NavLink to="/characters" exact activeClassName="active">CHARACTERS</NavLink>
             </a>
           </li>
           <li>
             <a href="#">
-              <NavLink to="/spells">SPELLS</NavLink>
+              <NavLink to="/spells" exact activeClassName="active">SPELLS</NavLink>
             </a>
           </li>
           <li>
             <a href="#">
-              <NavLink to="/houses">HOUSES</NavLink>
+              <NavLink to="/houses" exact activeClassName="active">HOUSES</NavLink>
             </a>
           </li>
         </ul>
