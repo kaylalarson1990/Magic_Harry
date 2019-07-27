@@ -3,22 +3,36 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Technologies Used
+- HTML
+- SCSS 
+- CSS
+- JavaScript
+- React
+- Redux
+- Router
+- Jest & Enzyme
+- API fetches
 
-In the project directory, you can run:
+## Installation - Front-End
 
-### `npm start`
+```bash
+git clone https://github.com/kaylalarson1990/Magic_Harry.git
+```
+Once you have cloned the repo, install the library dependencies. Run:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+npm install
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+To view the app in action, run the following command in your terminal:
 
-### `npm test`
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Then, go to http://localhost:3001/ in your browser to see the code running in the browser.
+
 
 ## Wireframes:
 
