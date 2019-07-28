@@ -4,7 +4,7 @@ import { housesReducer } from "./housesReducer";
 import { spellsReducer } from "./spellsReducer";
 import { favoriteReducer } from "./favoriteReducer";
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     characters: charactersReducer,
     houses: housesReducer,
     spells: spellsReducer,

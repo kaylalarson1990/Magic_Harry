@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 const Favorites = ({ favorites, favoriteCard }) => {
     const showFavorites = favorites.map(fav => {
-        console.log(fav)
         return (<>
             <Houses info={fav} key={fav.created} favoritedCard={favoriteCard} />
             <Characters info={fav} key={fav.created} favoritedCard={favoriteCard} />
@@ -25,6 +24,11 @@ const Favorites = ({ favorites, favoriteCard }) => {
             }
             </main>
     )
+}
+
+Favorites.propTypes = {
+    favorites: PropTypes.array,
+    favoriteCard: PropTypes.func
 }
 
 export default Favorites;

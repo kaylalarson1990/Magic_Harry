@@ -4,7 +4,7 @@ import "./Container.scss";
 import Houses from "../Houses/Houses.jsx";
 import PropTypes from "prop-types";
 
-class HouseContainer extends Component {
+export class HouseContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,7 +46,7 @@ class HouseContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   houses: state.houses
 });
 

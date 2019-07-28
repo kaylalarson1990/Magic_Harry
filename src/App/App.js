@@ -15,7 +15,7 @@ import {
 import { setSpells, setHouses, setCharacters } from "../actions/index";
 import { Route, Switch } from "react-router-dom";
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,8 +24,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const { favorites } = this.state;
-    if (!!favorites) this.getFromStorage();
     harryPotterSpells()
       .then(data => data)
       .then(spells => this.props.setSpells(spells))
@@ -40,47 +38,6 @@ class App extends Component {
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
-  favoriteCard = id => {
-    const { favorites } = this.state;
-      const favoritedCard = [
-          ...this.props.spells,
-          ...this.props.houses,
-          ...this.props.characters
-      ].find(card => card.id === id)
-
-      favoritedCard.favorite = !favoritedCard.favorite;
-
-      if(favoritedCard.favorite && !this.state.favorites.includes(favoritedCard)) {
-          this.setState({
-              favorites: [...this.state.favorites, favoritedCard]
-          })
-      } else {
-          this.setState({
-              favorites: this.state.favorites.filter(favorite => favorite.id !== id)
-          })
-      }
-      this.saveToStorage();
-  }
-
-  saveToStorage = () => {
-      const { favorites } = this.sate;
-      let favs = JSON.stringify(favorites);
-      localStorage.setItem("favorites", favs);
-  }
-
-  getFromStorage = () => {
-      for(let key in this.state) {
-          if(localStorage.hasOwnProperty(key)) {
-              let value = localStorage.getItem(key);
-              try {
-                  value = JSON.parse(value);
-                  this.setState({ [key]: value })
-              } catch(e) {
-                  this.setState({ [key]: value });
-              }
-          }
-      }
-  }
 
   homePage = () => (
     <>
@@ -94,23 +51,23 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={() => this.homePage()} />
-          <Route exact path="/characters" render={() => (<CharacterContainer favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/houses" render={() => (<HouseContainer favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/spells" render={() => (<SpellContainer favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} onLoad={this.getFromStorage}/>)} />
+          <Route exact path="/characters" component={CharacterContainer} />
+          <Route exact path="/houses" component={HouseContainer} />
+          <Route exact path="/spells" component={SpellContainer} />
+          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} />)} />
         </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   spells: state.spells,
   houses: state.houses,
   characters: state.characters
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setSpells: spells => dispatch(setSpells(spells)),
   setHouses: houses => dispatch(setHouses(houses)),
   setCharacters: characters => dispatch(setCharacters(characters))

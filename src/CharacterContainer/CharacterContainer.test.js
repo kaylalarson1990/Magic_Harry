@@ -1,14 +1,9 @@
-import {
-  CharacterContainer,
-  mapStateToProps,
-  mapDispatchToProps
-} from "./CharacterContainer.jsx";
-import { setCharacters } from "../actions/index";
+import { CharacterContainer, mapStateToProps } from "./CharacterContainer.jsx";
 import { shallow } from "enzyme";
 import React from "react";
 
 describe(CharacterContainer, () => {
-  let wrapper, mockData;
+  let wrapper, mockData, mockSubmit;
   beforeEach(() => {
     mockData = [
       {
@@ -21,11 +16,29 @@ describe(CharacterContainer, () => {
       }
     ];
 
+    mockSubmit = jest.fn();
+
     wrapper = shallow(<CharacterContainer characters={mockData} />);
   });
 
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it("should call setState on filtered", () => {
+    const mockEvent = {
+      target: {
+        value: "Kayla"
+      }
+    };
+
+    const expected = {
+      error: "",
+      filtered: "Kayla"
+    };
+
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state()).toEqual(expected);
   });
 });
 
@@ -40,15 +53,5 @@ describe("mapStateToProps", () => {
     };
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(expected);
-  });
-});
-
-describe("mapDispatchToProps", () => {
-  it("calls dispatch with a setCharacters action", () => {
-    const mockDispatch = jest.fn();
-    const actionToDispatch = setCharacters("Kayla");
-    const mappedDispatch = mapDispatchToProps(mockDispatch);
-    mappedDispatch.setCharacters("Kayla");
-    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 });

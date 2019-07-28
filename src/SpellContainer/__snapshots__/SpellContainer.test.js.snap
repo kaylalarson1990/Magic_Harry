@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CharacterContainer should match snapshot 1`] = `
+exports[`SpellContainer should match snapshot 1`] = `
 <Fragment>
   <article>
     <h2
       className="title"
     >
-      Harry Potter Characters
+      Harry Potter Spells
     </h2>
     <input
       className="search__input"
@@ -17,15 +17,13 @@ exports[`CharacterContainer should match snapshot 1`] = `
     />
   </article>
   <section
-    className="characters"
+    className="spells"
   >
-    <Characters
-      house="KlioPold"
+    <Spells
+      effect="Puts to sleep on command"
       key="1"
-      name="Kayla"
-      role="student"
-      school="Turing"
-      species="human"
+      spell="Accio"
+      type="Sleeping spell"
     />
   </section>
 </Fragment>

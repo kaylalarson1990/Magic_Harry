@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import "./Header.css";
 import { connect } from "react-redux";
-// import {
-//   harryPotterSpells,
-//   harryPotterHouses,
-//   harryPotterCharacters
-// } from "../apiCalls/apiCalls";
-// import { setSpells, setHouses, setCharacters } from "../actions/index";
 import glasses from "../images/glasses.jpg";
 import { NavLink } from "react-router-dom";
 
 export class Header extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
     return (
@@ -66,7 +57,7 @@ export class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   spells: state.spells,
   houses: state.houses,
   characters: state.characters
