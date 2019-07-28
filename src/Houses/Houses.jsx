@@ -64,14 +64,6 @@ export class Houses extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  favorites: state.favorites,
-  houses: state.houses
-});
-
-const mapDispatchToProps = dispatch => ({
-  addFavorite: favorites => dispatch(addFavorite(favorites))
-});
 
 Houses.propTypes = {
   name: PropTypes.string,
@@ -84,4 +76,4 @@ Houses.propTypes = {
   founder: PropTypes.string
 };
 
-export default connect(mapStateToProps)(Houses);
+export default Houses;

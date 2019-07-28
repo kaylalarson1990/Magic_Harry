@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CharacterContainer should match snapshot 1`] = `
+exports[`HouseContainer should match snapshot 1`] = `
 <Fragment>
   <article>
     <h2
       className="title"
     >
-      Harry Potter Characters
+      Harry Potter Houses
     </h2>
     <input
       className="search__input"
@@ -17,15 +17,16 @@ exports[`CharacterContainer should match snapshot 1`] = `
     />
   </article>
   <section
-    className="characters"
+    className="houses"
   >
-    <Characters
-      house="KlioPold"
+    <Houses
+      founder="Sergio"
+      headOfHouse="Klio Pold"
+      houseGhost="Dobby"
       key="1"
+      mascot="Bengal"
       name="Kayla"
-      role="student"
       school="Turing"
-      species="human"
     />
   </section>
 </Fragment>

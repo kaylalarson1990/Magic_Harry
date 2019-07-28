@@ -9,7 +9,7 @@ export class Characters extends Component {
   constructor() {
     super();
     this.state = {
-      favorites: false,
+      favorited: false,
       isFlipped: false,
       error: ""
     };

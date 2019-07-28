@@ -4,7 +4,7 @@ import "../HouseContainer/Container.scss";
 import Spells from "../Spells/Spells.jsx";
 import PropTypes from "prop-types";
 
-class SpellContainer extends Component {
+export class SpellContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -43,13 +43,10 @@ class SpellContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   spells: state.spells
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   setSpells: spells => dispatch(setSpells(spells))
-// });
 
 SpellContainer.propTypes = {
   spells: PropTypes.array,

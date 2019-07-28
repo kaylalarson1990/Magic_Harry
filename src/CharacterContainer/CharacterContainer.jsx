@@ -53,7 +53,7 @@ export const mapStateToProps = state => ({
 
 
 CharacterContainer.propTypes = {
-  characters: PropTypes.object,
+  characters: PropTypes.array,
   setCharacters: PropTypes.func
 };
 

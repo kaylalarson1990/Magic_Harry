@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Houses should match snapshot 1`] = `
+<t
+  cardStyles={
+    Object {
+      "back": Object {},
+      "front": Object {},
+    }
+  }
+  cardZIndex="auto"
+  containerStyle={Object {}}
+  flipDirection="vertical"
+  flipSpeedBackToFront={0.6}
+  flipSpeedFrontToBack={0.6}
+  infinite={false}
+  isFlipped={false}
+>
+  <article
+    className="houseCard"
+    key="front"
+  >
+    <h2>
+      Kayla
+    </h2>
+    <button
+      onClick={[Function]}
+    >
+      Click here for more details
+    </button>
+    <img
+      alt="favorite icon"
+      className="favorite-btn"
+      onClick={[Function]}
+      src="inactive.png"
+    />
+  </article>
+  <article
+    className="houseCard"
+    key="back"
+  >
+    <p>
+      <span>
+        Mascot:
+      </span>
+       
+      Bengal
+    </p>
+    <p>
+      <span>
+        Head Of House:
+      </span>
+       
+      Sergio
+    </p>
+    <p>
+      <span>
+        House Ghost:
+      </span>
+       
+      Klio
+    </p>
+    <p>
+      <span>
+        Founder:
+      </span>
+       
+      Sergio
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Return to Front
+    </button>
+  </article>
+</t>
+`;

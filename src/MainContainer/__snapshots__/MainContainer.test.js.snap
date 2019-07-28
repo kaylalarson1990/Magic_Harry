@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContainer should match snapshot 1`] = `
+<section>
+  <h1>
+    Welcome to the wizarding world of Harry Potter!
+  </h1>
+  <p>
+    Please choose a category above. 
+    <img
+      alt="wand"
+      className="wand"
+      src="wand2.png"
+    />
+  </p>
+</section>
+`;
