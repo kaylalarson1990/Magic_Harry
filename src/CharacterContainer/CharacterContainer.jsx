@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../HouseContainer/Container.scss";
-import { harryPotterCharacters } from "../apiCalls/apiCalls";
 import Characters from "../Characters/Characters.jsx";
-import { setCharacters } from "../actions/index";
 import PropTypes from "prop-types";
 
 export class CharacterContainer extends Component {
@@ -13,12 +11,6 @@ export class CharacterContainer extends Component {
       error: "",
       filtered: ""
     };
-  }
-  componentDidMount() {
-    harryPotterCharacters()
-      .then(data => data)
-      .then(characters => this.props.setCharacters(characters))
-      .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
   handleChange = (e) => {
@@ -59,9 +51,6 @@ export const mapStateToProps = state => ({
   characters: state.characters
 });
 
-export const mapDispatchToProps = dispatch => ({
-  setCharacters: characters => dispatch(setCharacters(characters))
-});
 
 CharacterContainer.propTypes = {
   characters: PropTypes.object,
@@ -69,6 +58,5 @@ CharacterContainer.propTypes = {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(CharacterContainer);
