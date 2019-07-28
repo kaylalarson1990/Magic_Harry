@@ -5,8 +5,9 @@ header {
   }
 
   .active {
-    color: #ECBA16;
-    font-weight: 700;
+    color: #BE0125;
+    font-size: 15.5px;
+    font-weight: 500;
   }
   
   nav {

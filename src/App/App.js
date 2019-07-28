@@ -1,13 +1,87 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "./App.css";
-import { Header } from "../Header/Header";
+import Header from "../Header/Header";
+import Favorites from "../Favorites/Favorites"
 import CharacterContainer from "../CharacterContainer/CharacterContainer";
 import { MainContainer } from "../MainContainer/MainContainer";
 import HouseContainer from "../HouseContainer/HouseContainer";
 import SpellContainer from "../SpellContainer/SpellContainer";
+import {
+  harryPotterSpells,
+  harryPotterHouses,
+  harryPotterCharacters
+} from "../apiCalls/apiCalls";
+import { setSpells, setHouses, setCharacters } from "../actions/index";
 import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+        favorites: []
+    }
+  }
+
+  componentDidMount() {
+    const { favorites } = this.state;
+    if (!!favorites) this.getFromStorage();
+    harryPotterSpells()
+      .then(data => data)
+      .then(spells => this.props.setSpells(spells))
+      .catch(this.setState({ error: "Error fetching wizard data" }));
+    harryPotterHouses()
+      .then(data => data)
+      .then(houses => this.props.setHouses(houses))
+      .catch(this.setState({ error: "Error fetching wizard data" }));
+    harryPotterCharacters()
+      .then(data => data)
+      .then(characters => this.props.setCharacters(characters))
+      .catch(this.setState({ error: "Error fetching wizard data" }));
+  }
+
+  favoriteCard = id => {
+    const { favorites } = this.state;
+      const favoritedCard = [
+          ...this.props.spells,
+          ...this.props.houses,
+          ...this.props.characters
+      ].find(card => card.id === id)
+
+      favoritedCard.favorite = !favoritedCard.favorite;
+
+      if(favoritedCard.favorite && !this.state.favorites.includes(favoritedCard)) {
+          this.setState({
+              favorites: [...this.state.favorites, favoritedCard]
+          })
+      } else {
+          this.setState({
+              favorites: this.state.favorites.filter(favorite => favorite.id !== id)
+          })
+      }
+      this.saveToStorage();
+  }
+
+  saveToStorage = () => {
+      const { favorites } = this.sate;
+      let favs = JSON.stringify(favorites);
+      localStorage.setItem("favorites", favs);
+  }
+
+  getFromStorage = () => {
+      for(let key in this.state) {
+          if(localStorage.hasOwnProperty(key)) {
+              let value = localStorage.getItem(key);
+              try {
+                  value = JSON.parse(value);
+                  this.setState({ [key]: value })
+              } catch(e) {
+                  this.setState({ [key]: value });
+              }
+          }
+      }
+  }
+
   homePage = () => (
     <>
       <MainContainer />
@@ -20,13 +94,26 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={() => this.homePage()} />
-          <Route exact path="/characters" component={CharacterContainer} />
-          <Route exact path="/houses" component={HouseContainer} />
-          <Route exact path="/spells" component={SpellContainer} />
+          <Route exact path="/characters" render={() => (<CharacterContainer favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/houses" render={() => (<HouseContainer favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/spells" render={() => (<SpellContainer favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} onLoad={this.getFromStorage}/>)} />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  spells: state.spells,
+  houses: state.houses,
+  characters: state.characters
+});
+
+const mapDispatchToProps = dispatch => ({
+  setSpells: spells => dispatch(setSpells(spells)),
+  setHouses: houses => dispatch(setHouses(houses)),
+  setCharacters: characters => dispatch(setCharacters(characters))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

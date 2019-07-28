@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Container.scss";
-import { harryPotterHouses } from "../apiCalls/apiCalls";
 import Houses from "../Houses/Houses.jsx";
-import { setHouses } from "../actions/index";
 import PropTypes from "prop-types";
 
 class HouseContainer extends Component {
@@ -13,13 +11,6 @@ class HouseContainer extends Component {
       error: "",
       filtered: ""
     };
-  }
-
-  componentDidMount() {
-    harryPotterHouses()
-      .then(data => data)
-      .then(houses => this.props.setHouses(houses))
-      .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
   handleChange = (e) => {
@@ -59,9 +50,6 @@ const mapStateToProps = state => ({
   houses: state.houses
 });
 
-const mapDispatchToProps = dispatch => ({
-  setHouses: houses => dispatch(setHouses(houses))
-});
 
 HouseContainer.propTypes = {
   houses: PropTypes.array,
@@ -69,6 +57,5 @@ HouseContainer.propTypes = {
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(HouseContainer);
