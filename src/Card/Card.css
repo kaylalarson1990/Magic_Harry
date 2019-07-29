@@ -1,4 +1,4 @@
-.houseCard {
+.card {
     align-items: center;
     background-color: white;
     border: .5px solid #EBECEC;
@@ -12,12 +12,15 @@
     width: 300px;
 }
 
-button {
+button,
+.favorite-btn {
+    border: 1px solid black;
     border-radius: 20px;
     cursor: pointer;
     font-size: 12px;
     margin: 25px 0;
     padding: 10px;
+    width: 180px;
 }
 
 button:hover {
@@ -38,11 +41,3 @@ h2 {
     background-color: #ECBA16;
 }
 
-.favorite-btn {
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 12px;
-    margin: 25px 0;
-    padding: 10px;
-    width: 160px;
-}
