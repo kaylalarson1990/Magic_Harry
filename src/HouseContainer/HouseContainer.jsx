@@ -20,6 +20,7 @@ export class HouseContainer extends Component {
   }
 
   render() {
+    const {favoriteCard} = this.props
     let filteredHouses = this.props.houses.filter(house => {
       return house.name.toLowerCase().indexOf(this.state.filtered) !== -1;
     });
@@ -32,6 +33,8 @@ export class HouseContainer extends Component {
         school={house.school}
         houseGhost={house.houseGhost}
         founder={house.founder}
+        favoriteCard={favoriteCard}
+        info={house}
       />
     ));
     return (

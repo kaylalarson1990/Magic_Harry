@@ -25,6 +25,9 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    const {favorites} = this.state;
+    if (!!favorites) this.getFromStorage();
+
     harryPotterSpells()
       .then(data => data)
       .then(spells => this.props.setSpells(spells))
@@ -45,7 +48,7 @@ export class App extends Component {
       ...this.props.spells,
       ...this.props.houses
     ].find(card => card.id === id);
-    console.log(favoritedCard)
+    console.log('card', favoritedCard)
 
     favoritedCard.favorite = !favoritedCard.favorite;
 
@@ -91,15 +94,16 @@ export class App extends Component {
   );
 
   render() {
+    console.log('fav', this.state.favorites)
     return (
       <div className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={() => this.homePage()} />
-          <Route exact path="/characters" render={() => (<CharacterContainer favorites={this.state.favorites} />)} />
-          <Route exact path="/houses" component={() => (<HouseContainer favorites={this.state.favorites} />)} />
-          <Route exact path="/spells" component={() => (<SpellContainer favorites={this.state.favorites} />)} />
-          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} />)} />
+          <Route exact path="/characters" render={() => (<CharacterContainer data={this.props.characters} favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/houses" component={() => (<HouseContainer data={this.props.houses} favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/spells" component={() => (<SpellContainer data={this.props.spells} favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} />)} />
           <Route render={Error} />
         </Switch>
       </div>

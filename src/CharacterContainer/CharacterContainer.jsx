@@ -20,6 +20,7 @@ export class CharacterContainer extends Component {
   }
 
   render() {
+    const {favoriteCard} = this.props
     let filteredCharacters = this.props.characters.filter(
       (character) => {
         return character.name.toLowerCase().indexOf(this.state.filtered) !== -1;
@@ -33,6 +34,8 @@ export class CharacterContainer extends Component {
         role={character.role}
         school={character.school}
         species={character.species}
+        favoriteCard={favoriteCard}
+        info={character}
       />
     ));
     return (

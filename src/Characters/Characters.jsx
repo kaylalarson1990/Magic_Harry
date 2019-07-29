@@ -15,19 +15,23 @@ export class Characters extends Component {
     };
   }
 
-  addFavorite = () => {
-    this.state.favorited
-      ? this.setState({ favorited: false })
-      : this.setState({ favorited: true });
-  };
-
   handleClick = e => {
     e.preventDefault();
     this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
   };
 
   render() {
-    const { name, role, house, school, id, species } = this.props;
+    const {
+      name,
+      role,
+      house,
+      school,
+      id,
+      species,
+      favoriteCard,
+      info
+    } = this.props;
+
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
         <article className="characterCard" key="front">
@@ -38,15 +42,23 @@ export class Characters extends Component {
           <img
             src={this.state.favorited ? active : inactive}
             alt="favorite icon"
-            className="favorite-btn"
-            onClick={this.addFavorite}
+            className={`favorite-btn ${info.favorite && "favorite"}`}
+            onClick={e => favoriteCard(info.id)}
           />
         </article>
         <article className="characterCard" key="back">
-          <p><span>Role:</span> {role}</p>
-          <p><span>House:</span> {house || "n/a"}</p>
-          <p><span>School:</span> {school || "n/a"}</p>
-          <p><span>Species:</span> {species}</p>
+          <p>
+            <span>Role:</span> {role}
+          </p>
+          <p>
+            <span>House:</span> {house || "n/a"}
+          </p>
+          <p>
+            <span>School:</span> {school || "n/a"}
+          </p>
+          <p>
+            <span>Species:</span> {species}
+          </p>
           <button onClick={this.handleClick}>Return to Front</button>
         </article>
       </ReactCardFlip>
