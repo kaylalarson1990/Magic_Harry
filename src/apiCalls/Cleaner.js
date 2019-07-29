@@ -3,8 +3,8 @@ export const cleanCharacters = (characters) => {
         id: character._id,
         name: character.name,
         role: character.role,
-        house: character.house,
-        school: character.school,
+        house: character.house || 'n/a',
+        school: character.school || 'n/a',
         species: character.species
     }))
 }
@@ -14,11 +14,10 @@ export const cleanHouses = (houses) => {
         id: house._id,
         name: house.name,
         mascot: house.mascot,
-        headOfHouse: house.headOfHouse,
-        houseGhost: house.houseGhost,
+        'head of house': house.headOfHouse,
+        'house ghost': house.houseGhost,
         founder: house.founder,
-        school: house.school,
-        members: house.members
+        school: house.school
     }))
 }
 

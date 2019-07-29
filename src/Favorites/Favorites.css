@@ -1,5 +1,12 @@
 .favorites {
-    font-size: 48px;
-    font-weight: 400;
-    color: #BE0125;
+  font-size: 48px;
+  font-weight: 400;
+  color: #be0125;
+}
+
+.fav-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 120px;
 }
