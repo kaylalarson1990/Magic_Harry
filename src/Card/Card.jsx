@@ -23,7 +23,7 @@ export class Card extends Component {
       if (key !== "id" && key !== "favorite") {
         cardInfo.push(
           <p className="card-info">
-            {key.toUpperCase()}: {info[key]}
+          <span className="head">{key.toUpperCase()}:</span> {info[key]}
           </p>
         );
       }
