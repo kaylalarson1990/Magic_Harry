@@ -1,13 +1,15 @@
 import React from "react";
 import { shallow, configure } from "enzyme";
-import App from "./App";
+// import { Provider } from 'react-redux';
+import { App } from "./App";
 import { setCharacters, setHouses, setSpells } from "../actions/index";
 import { mapStateToProps, mapDispatchToProps } from "./App";
 
 describe("App", () => {
-  let wrapper, instance;
+  let wrapper, instance, store;
 
   beforeEach(() => {
+    store = 
     wrapper = shallow(<App />);
     instance = wrapper.instance();
   });

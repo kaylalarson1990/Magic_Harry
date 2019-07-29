@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Header, {mapStateToProps} from "./Header";
+import {Header, mapStateToProps} from "./Header";
 
 describe('Header', () => {
     let wrapper, props;

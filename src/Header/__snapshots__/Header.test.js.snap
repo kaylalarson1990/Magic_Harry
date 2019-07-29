@@ -1,3 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should match snapshot 1`] = `undefined`;
+exports[`Header should match snapshot 1`] = `
+<header>
+  <nav>
+    <ul
+      className="nav"
+    >
+      <li>
+        <a
+          className="glasses"
+          href="#"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/"
+          >
+            <img
+              alt="harry potter glasses"
+              className="glasses"
+              src="glasses.jpg"
+            />
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/characters"
+          >
+            CHARACTERS
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/spells"
+          >
+            SPELLS
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/houses"
+          >
+            HOUSES
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          <NavLink
+            activeClassName="active"
+            exact={true}
+            to="/favorites"
+          >
+            FAVORITES
+          </NavLink>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
