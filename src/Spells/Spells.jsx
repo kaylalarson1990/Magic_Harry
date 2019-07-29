@@ -14,11 +14,11 @@ export class Spells extends Component {
     };
   }
 
-  addFavorite = () => {
-    this.state.favorited
-      ? this.setState({ favorited: false })
-      : this.setState({ favorited: true });
-  };
+  // addFavorite = () => {
+  //   this.state.favorited
+  //     ? this.setState({ favorited: false })
+  //     : this.setState({ favorited: true });
+  // };
 
   handleClick = e => {
     e.preventDefault();
@@ -26,7 +26,7 @@ export class Spells extends Component {
   };
 
   render() {
-    const { spell, type, effect, id } = this.props;
+    const { spell, type, effect, id, favoriteCard, info } = this.props;
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
         <article className="spellCard" key="front">
@@ -37,8 +37,8 @@ export class Spells extends Component {
           <img
             src={this.state.favorited ? active : inactive}
             alt="favorite icon"
-            className="favorite-btn"
-            onClick={this.addFavorite}
+            className={`favorite-btn ${info.favorite && "favorite"}`}
+            onClick={e => favoriteCard(info.id)}
           />
         </article>
         <article className="spellCard" key="back">

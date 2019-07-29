@@ -32,7 +32,9 @@ export class Houses extends Component {
       id,
       headOfHouse,
       houseGhost,
-      founder
+      founder,
+      favoriteCard,
+      info
     } = this.props;
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
@@ -44,22 +46,29 @@ export class Houses extends Component {
           <img
             src={this.state.favorited ? active : inactive}
             alt="favorite icon"
-            className="favorite-btn"
-            onClick={this.addFavorite}
+            className={`favorite-btn ${info.favorite && "favorite"}`}
+            onClick={e => favoriteCard(info.id)}
           />
         </article>
         <article className="houseCard" key="back">
-          <p><span>Mascot:</span> {mascot}</p>
-          <p><span>Head Of House:</span> {headOfHouse}</p>
-          <p><span>House Ghost:</span> {houseGhost}</p>
-          <p><span>Founder:</span> {founder}</p>
+          <p>
+            <span>Mascot:</span> {mascot}
+          </p>
+          <p>
+            <span>Head Of House:</span> {headOfHouse}
+          </p>
+          <p>
+            <span>House Ghost:</span> {houseGhost}
+          </p>
+          <p>
+            <span>Founder:</span> {founder}
+          </p>
           <button onClick={this.handleClick}>Return to Front</button>
         </article>
       </ReactCardFlip>
     );
   }
 }
-
 
 Houses.propTypes = {
   name: PropTypes.string,

@@ -20,6 +20,7 @@ export class SpellContainer extends Component {
   }
 
   render() {
+    const {favoriteCard} = this.props
     let filteredSpells = this.props.spells.filter(spell => {
       return spell.spell.toLowerCase().indexOf(this.state.filtered) !== -1;
     });
@@ -29,6 +30,8 @@ export class SpellContainer extends Component {
         spell={spell.spell}
         type={spell.type}
         effect={spell.effect}
+        favoriteCard={favoriteCard}
+        info={spell}
       />
     ));
     return (
