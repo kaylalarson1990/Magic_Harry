@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
 import Header from "../Header/Header";
+import Error from "../Error/Error.js"
 import Favorites from "../Favorites/Favorites"
 import CharacterContainer from "../CharacterContainer/CharacterContainer";
 import { MainContainer } from "../MainContainer/MainContainer";
@@ -55,6 +56,7 @@ export class App extends Component {
           <Route exact path="/houses" component={HouseContainer} />
           <Route exact path="/spells" component={SpellContainer} />
           <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} />)} />
+          <Route render={Error} />
         </Switch>
       </div>
     );

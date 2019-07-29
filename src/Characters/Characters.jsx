@@ -44,8 +44,8 @@ export class Characters extends Component {
         </article>
         <article className="characterCard" key="back">
           <p><span>Role:</span> {role}</p>
-          <p><span>House:</span> {house}</p>
-          <p><span>School:</span> {school}</p>
+          <p><span>House:</span> {house || "n/a"}</p>
+          <p><span>School:</span> {school || "n/a"}</p>
           <p><span>Species:</span> {species}</p>
           <button onClick={this.handleClick}>Return to Front</button>
         </article>

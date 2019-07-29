@@ -1,6 +1,5 @@
 import React from "react";
-import { shallow, configure } from "enzyme";
-// import { Provider } from 'react-redux';
+import { shallow } from "enzyme";
 import { App } from "./App";
 import { setCharacters, setHouses, setSpells } from "../actions/index";
 import { mapStateToProps, mapDispatchToProps } from "./App";
