@@ -9,7 +9,8 @@ export class CharacterContainer extends Component {
     super();
     this.state = {
       error: "",
-      filtered: ""
+      filtered: "",
+      num: 30
     };
   }
 
@@ -19,17 +20,42 @@ export class CharacterContainer extends Component {
     });
   };
 
+  handleClick = e => {
+    e.preventDefault();
+    if (this.state.num === 30) {
+      this.setState({
+        num: 60
+      });
+      e.target.innerText = "Show More";
+    } else if (this.state.num === 60) {
+      this.setState({
+        num: 90
+      });
+      e.target.innerText = "Show More";
+    } else if (this.state.num === 90) {
+      this.setState({
+        num: 120
+      });
+      e.target.innerText = "Show Less";
+    } else {
+      this.setState({
+        num: 30
+      });
+      e.target.innerText = "Show More";
+    }
+  };
+
   render() {
     const { favoriteCard } = this.props;
     let filteredCharacters = this.props.characters.filter(character => {
       return character.name.toLowerCase().indexOf(this.state.filtered) !== -1;
     });
 
-    const displayCharacters = filteredCharacters.map(char => (
+    const displayCharacters = filteredCharacters.slice(0, this.state.num).map(char => (
       <Card info={char} key={char.created} favoriteCard={favoriteCard} />
     ));
     return (
-      <>
+      <main>
         <article>
           <h2 className="title">Harry Potter Characters</h2>
           <input
@@ -41,7 +67,10 @@ export class CharacterContainer extends Component {
           />
         </article>
         <section className="characters">{displayCharacters}</section>
-      </>
+        <div className="show-more"><button className="showMoreBtn" onClick={e => this.handleClick(e)}>
+          Show More
+        </button></div>
+      </main>
     );
   }
 }

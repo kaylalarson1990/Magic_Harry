@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Header.css";
 import { connect } from "react-redux";
-import glasses from "../images/glasses.jpg";
+import glasses from "../images/glasses.png";
 import { NavLink } from "react-router-dom";
 
 export class Header extends Component {

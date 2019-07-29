@@ -6,7 +6,7 @@ export const MainContainer = () => {
   return (
     <section>
       <h1>Welcome to the wizarding world of Harry Potter!</h1>
-      <p>Please choose a category above. <img src={wand2} alt="wand" className="wand" /></p>
+      <p>Please choose a category above to begin. <img src={wand2} alt="wand" className="wand" /></p>
     </section>
   );
 };
