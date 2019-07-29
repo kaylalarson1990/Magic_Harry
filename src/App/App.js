@@ -39,6 +39,50 @@ export class App extends Component {
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
+  favoriteCard = id => {
+    const favoritedCard = [
+      ...this.props.characters,
+      ...this.props.spells,
+      ...this.props.houses
+    ].find(card => card.id === id);
+    console.log(favoritedCard)
+
+    favoritedCard.favorite = !favoritedCard.favorite;
+
+    if (
+      favoritedCard.favorite &&
+      !this.state.favorites.includes(favoritedCard)
+    ) {
+      this.setState({
+        favorites: [...this.state.favorites, favoritedCard]
+      });
+    } else {
+      this.setState({
+        favorites: this.state.favorites.filter(favorite => favorite.id !== id)
+      });
+    }
+    this.saveToStorage();
+  };
+
+  saveToStorage = () => {
+    const { favorites } = this.state;
+    let favs = JSON.stringify(favorites);
+    localStorage.setItem("favorites", favs);
+  };
+
+  getFromStorage = () => {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  };
 
   homePage = () => (
     <>
@@ -52,9 +96,9 @@ export class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={() => this.homePage()} />
-          <Route exact path="/characters" component={CharacterContainer} />
-          <Route exact path="/houses" component={HouseContainer} />
-          <Route exact path="/spells" component={SpellContainer} />
+          <Route exact path="/characters" render={() => (<CharacterContainer favorites={this.state.favorites} />)} />
+          <Route exact path="/houses" component={() => (<HouseContainer favorites={this.state.favorites} />)} />
+          <Route exact path="/spells" component={() => (<SpellContainer favorites={this.state.favorites} />)} />
           <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} />)} />
           <Route render={Error} />
         </Switch>

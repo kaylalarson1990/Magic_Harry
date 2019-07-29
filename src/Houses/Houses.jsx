@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReactCardFlip from "react-card-flip";
 import "./Houses.css";
-import { connect } from "react-redux";
-import { addFavorite } from "../actions";
 import inactive from "../images/inactive.png";
 import active from "../images/active.png";
 
@@ -31,8 +29,6 @@ export class Houses extends Component {
     const {
       name,
       mascot,
-      house,
-      school,
       id,
       headOfHouse,
       houseGhost,
