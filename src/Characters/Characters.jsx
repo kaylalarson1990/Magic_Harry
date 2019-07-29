@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReactCardFlip from "react-card-flip";
-import inactive from "../images/inactive.png";
-import active from "../images/active.png";
 import "./Characters.css";
 
 export class Characters extends Component {
   constructor() {
     super();
     this.state = {
-      favorited: false,
       isFlipped: false,
       error: ""
     };
@@ -31,7 +28,6 @@ export class Characters extends Component {
       favoriteCard,
       info
     } = this.props;
-
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
         <article className="characterCard" key="front">
@@ -39,12 +35,9 @@ export class Characters extends Component {
           <button onClick={this.handleClick}>
             Click here for more details
           </button>
-          <img
-            src={this.state.favorited ? active : inactive}
-            alt="favorite icon"
-            className={`favorite-btn ${info.favorite && "favorite"}`}
-            onClick={e => favoriteCard(info.id)}
-          />
+          <button onClick={e => favoriteCard(info.id)} className={`favorite-btn ${info.favorite && "favorite"}`}>
+              Favorite
+          </button>
         </article>
         <article className="characterCard" key="back">
           <p>

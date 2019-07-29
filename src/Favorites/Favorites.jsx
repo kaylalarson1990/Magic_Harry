@@ -6,14 +6,31 @@ import "./Favorites.css";
 import PropTypes from "prop-types";
 
 const Favorites = ({ favorites, favoriteCard }) => {
-  const showFavorites = favorites.map(fav => {
-      console.log('1', fav)
+  const showFavoriteHouses = favorites.map(favHouse => {
     return (
-      <>
-        <Houses info={fav} key={fav.created} favoritedCard={favoriteCard} />
-        <Characters info={fav} key={fav.created} favoritedCard={favoriteCard} />
-        <Spells info={fav} key={fav.created} favoritedCard={favoriteCard} />
-      </>
+      <Houses
+        info={favHouse}
+        key={favHouse.created}
+        favoritedCard={favoriteCard}
+      />
+    );
+  });
+  const showFavoriteCharacters = favorites.map(favChar => {
+    return (
+      <Characters
+        info={favChar}
+        key={favChar.created}
+        favoritedCard={favoriteCard}
+      />
+    );
+  });
+  const showFavoriteSpells = favorites.map(favSpells => {
+    return (
+      <Spells
+        info={favSpells}
+        key={favSpells.created}
+        favoritedCard={favoriteCard}
+      />
     );
   });
 
@@ -24,7 +41,9 @@ const Favorites = ({ favorites, favoriteCard }) => {
           <i /> No Favorites Available
         </h2>
       ) : (
-        showFavorites
+        showFavoriteHouses,
+        showFavoriteCharacters,
+        showFavoriteSpells
       )}
     </main>
   );

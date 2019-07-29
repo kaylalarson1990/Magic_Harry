@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
+import ls from 'local-storage'
 import Header from "../Header/Header";
 import Error from "../Error/Error.js"
 import Favorites from "../Favorites/Favorites"
@@ -20,7 +21,7 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-        favorites: []
+        favorites: [],
     }
   }
 
@@ -48,10 +49,8 @@ export class App extends Component {
       ...this.props.spells,
       ...this.props.houses
     ].find(card => card.id === id);
-    console.log('card', favoritedCard)
 
     favoritedCard.favorite = !favoritedCard.favorite;
-
     if (
       favoritedCard.favorite &&
       !this.state.favorites.includes(favoritedCard)
@@ -103,7 +102,7 @@ export class App extends Component {
           <Route exact path="/characters" render={() => (<CharacterContainer data={this.props.characters} favoriteCard={this.favoriteCard} />)} />
           <Route exact path="/houses" component={() => (<HouseContainer data={this.props.houses} favoriteCard={this.favoriteCard} />)} />
           <Route exact path="/spells" component={() => (<SpellContainer data={this.props.spells} favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} />)} />
+          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} onLoad={this.getFromStorage} />)} />
           <Route render={Error} />
         </Switch>
       </div>
