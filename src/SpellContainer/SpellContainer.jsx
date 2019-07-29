@@ -9,7 +9,8 @@ export class SpellContainer extends Component {
     super();
     this.state = {
       error: "",
-      filtered: ""
+      filtered: "",
+      num: 30
     };
   }
 
@@ -19,16 +20,44 @@ export class SpellContainer extends Component {
     });
   };
 
+  handleClick = e => {
+    e.preventDefault();
+    if (this.state.num === 30) {
+      this.setState({
+        num: 60
+      });
+      e.target.innerText = "Show More";
+    } else if (this.state.num === 60) {
+      this.setState({
+        num: 90
+      });
+      e.target.innerText = "Show More";
+    } else if (this.state.num === 90) {
+      this.setState({
+        num: 120
+      });
+      e.target.innerText = "Show Less";
+    } else {
+      this.setState({
+        num: 30
+      });
+      e.target.innerText = "Show More";
+    }
+  };
+
   render() {
     const { favoriteCard } = this.props;
     let filteredSpells = this.props.spells.filter(spell => {
       return spell.spell.toLowerCase().indexOf(this.state.filtered) !== -1;
     });
-    const displaySpells = filteredSpells.map(spell => (
-      <Card info={spell} key={spell.created} favoriteCard={favoriteCard} />
-    ));
+    const displaySpells = filteredSpells
+      .slice(0, this.state.num)
+      .map(spell => (
+        <Card info={spell} key={spell.created} favoriteCard={favoriteCard} />
+      ));
+
     return (
-      <>
+      <main>
         <article>
           <h2 className="title">Harry Potter Spells</h2>
           <input
@@ -40,7 +69,12 @@ export class SpellContainer extends Component {
           />
         </article>
         <section className="spells">{displaySpells}</section>
-      </>
+        <div className="show-more">
+          <button className="showMore-btn" onClick={e => this.handleClick(e)}>
+            Show More
+          </button>
+        </div>
+      </main>
     );
   }
 }

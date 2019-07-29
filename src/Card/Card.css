@@ -33,11 +33,21 @@ span {
 
 
 h2 {
-    text-align: center;
     font-weight: 600;
+    text-align: center;
 }
 
 .favorite {
     background-color: #ECBA16;
+}
+
+.card-info {
+    color: black;
+    font-size: 18px;
+    margin: 15px 20px;
+}
+
+.head {
+    font-weight: 700;
 }
 
