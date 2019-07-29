@@ -13,7 +13,3 @@ export const setSpells = spells => ({
   spells
 });
 
-export const addFavorite = favorites => ({
-  type: "ADD_FAVORITE",
-  favorites
-})

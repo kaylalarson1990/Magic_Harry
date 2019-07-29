@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import ls from 'local-storage'
 import Header from "../Header/Header";
-import Error from "../Error/Error.js"
-import Favorites from "../Favorites/Favorites"
+import Error from "../Error/Error.js";
+import Favorites from "../Favorites/Favorites";
 import CharacterContainer from "../CharacterContainer/CharacterContainer";
 import { MainContainer } from "../MainContainer/MainContainer";
 import HouseContainer from "../HouseContainer/HouseContainer";
@@ -21,12 +20,12 @@ export class App extends Component {
   constructor() {
     super();
     this.state = {
-        favorites: [],
-    }
+      favorites: []
+    };
   }
 
   componentDidMount() {
-    const {favorites} = this.state;
+    const { favorites } = this.state;
     if (!!favorites) this.getFromStorage();
 
     harryPotterSpells()
@@ -93,16 +92,53 @@ export class App extends Component {
   );
 
   render() {
-    console.log('fav', this.state.favorites)
+    console.log("fav", this.state.favorites);
     return (
       <div className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={() => this.homePage()} />
-          <Route exact path="/characters" render={() => (<CharacterContainer data={this.props.characters} favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/houses" component={() => (<HouseContainer data={this.props.houses} favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/spells" component={() => (<SpellContainer data={this.props.spells} favoriteCard={this.favoriteCard} />)} />
-          <Route exact path="/favorites" render={() => (<Favorites favorites={this.state.favorites} favoriteCard={this.favoriteCard} onLoad={this.getFromStorage} />)} />
+          <Route
+            exact
+            path="/characters"
+            render={() => (
+              <CharacterContainer
+                data={this.props.characters}
+                favoriteCard={this.favoriteCard}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/houses"
+            component={() => (
+              <HouseContainer
+                data={this.props.houses}
+                favoriteCard={this.favoriteCard}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/spells"
+            component={() => (
+              <SpellContainer
+                data={this.props.spells}
+                favoriteCard={this.favoriteCard}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/favorites"
+            render={() => (
+              <Favorites
+                favorites={this.state.favorites}
+                favoriteCard={this.favoriteCard}
+                onLoad={this.getFromStorage}
+              />
+            )}
+          />
           <Route render={Error} />
         </Switch>
       </div>
@@ -122,4 +158,7 @@ export const mapDispatchToProps = dispatch => ({
   setCharacters: characters => dispatch(setCharacters(characters))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
