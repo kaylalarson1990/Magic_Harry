@@ -65,6 +65,8 @@ Then, go to http://localhost:3001/ in your browser to see the code running in th
 ### Favorite Page:
 ![Screen Shot 2019-07-29 at 8 11 04 PM](https://user-images.githubusercontent.com/37026730/62095266-1f562800-b23d-11e9-92d6-ead368b7757b.png)
 
+![Favoriting and searching](https://media.giphy.com/media/QUGMHd8eL7Y5O4gl7t/giphy.gif)
+
 ### Search:
 ![Screen Shot 2019-07-29 at 8 10 14 PM](https://user-images.githubusercontent.com/37026730/62095274-22e9af00-b23d-11e9-9b2b-7a0ff2f4b81f.png)
 
@@ -78,3 +80,5 @@ Then, go to http://localhost:3001/ in your browser to see the code running in th
 
 ### Show More Button:
 ![Screen Shot 2019-07-29 at 8 10 30 PM](https://user-images.githubusercontent.com/37026730/62095368-72c87600-b23d-11e9-862f-d8d85d9d8b70.png)
+
+![More Button](https://media.giphy.com/media/mEh7k4MjomV8FHzPSh/giphy.gif)
