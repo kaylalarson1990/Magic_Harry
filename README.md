@@ -1,6 +1,12 @@
 
 # Magic_Harry
 
+Magic Harry is an individual project done in 5 days. I used the [Harry Potter API](https://www.potterapi.com/) pulling from the Spell, House and Character API. My goal for the MVP was to provide the data for Harry Potter fans, in a clean, easy, and fun way. Each tab has a way to flip the cards over for more detail and allows you to search through the data. You also have the ability to favorite and view your favorites in the favorite tab.
+
+Strengths: One of my goals with this project was to focus on UI/UX and wireframing. I wanted to make something really clean and easy to use. I feel very confident that I have improved in this area and am happy with the result!
+
+Weaknesses: Another one of my goals was to improve testing, as this is a much harder concept to grasp. I am happy with my progress, but there is still some room for improvement there.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Technologies Used
