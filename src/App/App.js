@@ -92,7 +92,6 @@ export class App extends Component {
   );
 
   render() {
-    console.log("fav", this.state.favorites);
     return (
       <div className="App">
         <Header />

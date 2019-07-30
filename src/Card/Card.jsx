@@ -33,7 +33,7 @@ export class Card extends Component {
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
         <article className="card" key="front">
             <h2>{info.name || info.spell}</h2>
-          <button onClick={this.handleClick}>
+          <button className="flip-card1" onClick={this.handleClick}>
             Click here for more details
           </button>
           <button
@@ -45,7 +45,7 @@ export class Card extends Component {
         </article>
         <article className="card" key="back">
           {cardInfo}
-          <button onClick={this.handleClick}>Return to Front</button>
+          <button className="flip-card2" onClick={this.handleClick}>Return to Front</button>
         </article>
       </ReactCardFlip>
     );

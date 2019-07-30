@@ -70,7 +70,7 @@ export class SpellContainer extends Component {
         </article>
         <section className="spells">{displaySpells}</section>
         <div className="show-more">
-          <button className="showMore-btn" onClick={e => this.handleClick(e)}>
+          <button className="showMoreBtn" onClick={e => this.handleClick(e)}>
             Show More
           </button>
         </div>

@@ -19,7 +19,7 @@ exports[`Header should match snapshot 1`] = `
             <img
               alt="harry potter glasses"
               className="glasses"
-              src="glasses.jpg"
+              src="glasses.png"
             />
           </NavLink>
         </a>

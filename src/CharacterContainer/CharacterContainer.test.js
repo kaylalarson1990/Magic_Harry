@@ -3,7 +3,10 @@ import { shallow } from "enzyme";
 import React from "react";
 
 describe(CharacterContainer, () => {
-  let wrapper, mockData, mockSubmit;
+  let wrapper, mockData, mockSubmit, instance, mockFunc;
+  let event = {
+    preventDefault: jest.fn()
+  }
   beforeEach(() => {
     mockData = [
       {
@@ -15,10 +18,10 @@ describe(CharacterContainer, () => {
         species: "human"
       }
     ];
-
     mockSubmit = jest.fn();
-
+    mockFunc = jest.fn();
     wrapper = shallow(<CharacterContainer characters={mockData} />);
+    instance = wrapper.instance()
   });
 
   it("should match snapshot", () => {
@@ -34,12 +37,19 @@ describe(CharacterContainer, () => {
 
     const expected = {
       error: "",
-      filtered: "Kayla"
+      filtered: "Kayla",
+      num: 30
     };
 
     wrapper.instance().handleChange(mockEvent);
     expect(wrapper.state()).toEqual(expected);
   });
+
+  it('should be able to click "show more" button to see more data', () => {
+    wrapper.instance().handleClick = jest.fn()
+    wrapper.find('.showMoreBtn').simulate('click')
+    expect(wrapper.instance().handleClick).toHaveBeenCalled()
+  })
 });
 
 describe("mapStateToProps", () => {
