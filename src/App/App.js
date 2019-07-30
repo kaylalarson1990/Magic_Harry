@@ -50,8 +50,6 @@ export class App extends Component {
       ...this.props.characters
     ].find(card => card.id === id);
 
-    console.log('fc', favoritedCard)
-
     if (!favorites.includes(favoritedCard)) {
       favoritedCard.favorite = !favoritedCard.favorite;
       this.setState({
@@ -69,7 +67,6 @@ export class App extends Component {
   saveToStorage = () => {
     const { favorites } = this.state;
     let favs = JSON.stringify(favorites);
-    console.log(favs)
     localStorage.setItem("favorites", favs);
   };
 

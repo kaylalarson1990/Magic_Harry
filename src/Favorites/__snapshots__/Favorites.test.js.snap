@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Favorites should match snapshot 1`] = `undefined`;
+exports[`Favorites should match snapshot 1`] = `
+<article>
+  <h2
+    className="title"
+  >
+    Favorites
+  </h2>
+  <section
+    className="fav-container"
+  >
+    <Card
+      favoriteCard={[MockFunction]}
+      info={
+        Object {
+          "favorites": "Kayla",
+        }
+      }
+    />
+  </section>
+</article>
+`;

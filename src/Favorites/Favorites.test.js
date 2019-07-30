@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import Favorites from "./Favorites.jsx";
 
 describe("Favorites", () => {
-  let wrapper, mockData;
+  let wrapper, mockData, instance;
 
   beforeEach(() => {
     mockData = [
@@ -14,8 +14,12 @@ describe("Favorites", () => {
     wrapper = shallow(
       <Favorites favorites={mockData} favoriteCard={jest.fn()} />
     );
+    instance = wrapper.instance()
   });
-  xit("should match snapshot", () => {
+
+  it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  
 });

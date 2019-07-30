@@ -1,10 +1,8 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { App } from "./App";
-import Error from "../Error/Error";
 import { CharacterContainer } from "../CharacterContainer/CharacterContainer";
 import { MemoryRouter } from "react-router";
-import { Route } from "react-router-dom";
 import { setCharacters, setHouses, setSpells } from "../actions/index";
 import { mapStateToProps, mapDispatchToProps } from "./App";
 
@@ -68,6 +66,13 @@ describe("App", () => {
       )
     ).toHaveLength(0);
   });
+
+  it('should add and delete from favorite state', () => {
+    const mockData = [{id: '1', name: 'Kayla'}]
+    expect(wrapper.state('favorites').length).toEqual(0)
+    wrapper.instance().favoriteCard(mockData)
+    expect(wrapper.state('favorites').length).toEqual(1)
+  })
 });
 
 describe("mapDispatchToProps", () => {
