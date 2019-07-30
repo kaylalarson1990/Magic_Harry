@@ -5,7 +5,7 @@ Magic Harry is an individual project done in 5 days. I used the [Harry Potter AP
 
 Strengths: One of my goals with this project was to focus on UI/UX and wireframing. I wanted to make something really clean and easy to use. I feel very confident that I have improved in this area and am happy with the result!
 
-Weaknesses: Another one of my goals was to improve testing, as this is a much harder concept to grasp. I am happy with my progress, but there is still some room for improvement there.
+Weaknesses: Another one of my goals was to improve testing, as this is a much harder concept to grasp. I am happy with my progress, but there is still some room for improvement there. Also, getting local storage to work was definitely not a strong point for me. A goal now is to figure out how to make this work and understand the ins and outs of it.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
