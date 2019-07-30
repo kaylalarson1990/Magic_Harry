@@ -50,3 +50,9 @@ Then, go to http://localhost:3001/ in your browser to see the code running in th
 
 ### Mobile 2:
 <img width="373" alt="Screen Shot 2019-07-25 at 2 05 06 PM" src="https://user-images.githubusercontent.com/37026730/61916279-26133100-af05-11e9-8ea1-f52f1917e29b.png">
+
+## Screenshots:
+![Screen Shot 2019-07-29 at 8 11 04 PM](https://user-images.githubusercontent.com/37026730/62095266-1f562800-b23d-11e9-92d6-ead368b7757b.png)
+![Screen Shot 2019-07-29 at 8 10 14 PM](https://user-images.githubusercontent.com/37026730/62095274-22e9af00-b23d-11e9-9b2b-7a0ff2f4b81f.png)
+![Screen Shot 2019-07-29 at 8 09 58 PM](https://user-images.githubusercontent.com/37026730/62095283-2a10bd00-b23d-11e9-8d70-46d837ea9143.png)
+![Screen Shot 2019-07-29 at 8 09 46 PM](https://user-images.githubusercontent.com/37026730/62095284-2a10bd00-b23d-11e9-9903-43e1e5487a85.png)
