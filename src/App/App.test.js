@@ -72,6 +72,30 @@ describe("App", () => {
     expect(wrapper.state("favorites").length).toEqual(0);
   });
 
+  it('componentDidMount should call harryPotterSpells', () => {
+    instance.harryPotterSpells = jest.fn()
+    expect(instance.harryPotterSpells).not.toHaveBeenCalled()
+    instance.componentDidMount()
+    instance.harryPotterSpells()
+    expect(instance.harryPotterSpells).toHaveBeenCalled()
+  })
+
+  it('componentDidMount should call harryPotterHouses', () => {
+    instance.harryPotterHouses = jest.fn()
+    expect(instance.harryPotterHouses).not.toHaveBeenCalled()
+    instance.componentDidMount()
+    instance.harryPotterHouses()
+    expect(instance.harryPotterHouses).toHaveBeenCalled()
+  })
+
+  it('componentDidMount should call harryPotterCharacters', () => {
+    instance.harryPotterCharacters = jest.fn()
+    expect(instance.harryPotterCharacters).not.toHaveBeenCalled()
+    instance.componentDidMount()
+    instance.harryPotterCharacters()
+    expect(instance.harryPotterCharacters).toHaveBeenCalled()
+  })
+
 });
 
 describe("mapDispatchToProps", () => {
