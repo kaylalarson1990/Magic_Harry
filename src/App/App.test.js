@@ -71,6 +71,7 @@ describe("App", () => {
     const mockData = [{ id: "1", name: "Kayla" }];
     expect(wrapper.state("favorites").length).toEqual(0);
   });
+
 });
 
 describe("mapDispatchToProps", () => {
