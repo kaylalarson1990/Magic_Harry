@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Jolly+Lodger&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Jolly+Lodger&display=swap");
 
 body {
   background-color: #f6f7f7;
   margin: 0;
-  font-family: 'Jolly Lodger'
+  font-family: "Jolly Lodger";
 }
 
 code {

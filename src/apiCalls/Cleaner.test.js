@@ -22,42 +22,42 @@ describe("cleanCharacters", () => {
 });
 
 describe("cleanSpells", () => {
-    it("should return a cleaned spell", () => {
-      const mockSpell = {
-        id: undefined,
-        spell: "Accio",
-        type: "Sleeping",
-        effect: "Puts you to sleep"
-      };
-  
-      const expected = [
-        {
-          ...mockSpell
-        }
-      ];
-      const result = cleanSpells([mockSpell]);
-      expect(result).toEqual(expected);
-    });
-  });
+  it("should return a cleaned spell", () => {
+    const mockSpell = {
+      id: undefined,
+      spell: "Accio",
+      type: "Sleeping",
+      effect: "Puts you to sleep"
+    };
 
-  describe("cleanHouses", () => {
-    it("should return a cleaned house", () => {
-      const mockHouse = {
-        id: undefined,
-        name: "Slytherin",
-        mascot: "Klio",
-        'head of house': undefined,
-        'house ghost': undefined,
-        founder: "Sergio",
-        school: "Turing"
-      };
-  
-      const expected = [
-        {
-          ...mockHouse
-        }
-      ];
-      const result = cleanHouses([mockHouse]);
-      expect(result).toEqual(expected);
-    });
+    const expected = [
+      {
+        ...mockSpell
+      }
+    ];
+    const result = cleanSpells([mockSpell]);
+    expect(result).toEqual(expected);
   });
+});
+
+describe("cleanHouses", () => {
+  it("should return a cleaned house", () => {
+    const mockHouse = {
+      id: undefined,
+      name: "Slytherin",
+      mascot: "Klio",
+      "head of house": undefined,
+      "house ghost": undefined,
+      founder: "Sergio",
+      school: "Turing"
+    };
+
+    const expected = [
+      {
+        ...mockHouse
+      }
+    ];
+    const result = cleanHouses([mockHouse]);
+    expect(result).toEqual(expected);
+  });
+});

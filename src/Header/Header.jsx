@@ -5,7 +5,6 @@ import glasses from "../images/glasses.png";
 import { NavLink } from "react-router-dom";
 
 export class Header extends Component {
-
   render() {
     return (
       <header>

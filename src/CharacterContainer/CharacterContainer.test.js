@@ -6,7 +6,7 @@ describe(CharacterContainer, () => {
   let wrapper, mockData, mockSubmit, instance, mockFunc;
   let event = {
     preventDefault: jest.fn()
-  }
+  };
   beforeEach(() => {
     mockData = [
       {
@@ -21,7 +21,7 @@ describe(CharacterContainer, () => {
     mockSubmit = jest.fn();
     mockFunc = jest.fn();
     wrapper = shallow(<CharacterContainer characters={mockData} />);
-    instance = wrapper.instance()
+    instance = wrapper.instance();
   });
 
   it("should match snapshot", () => {
@@ -46,10 +46,10 @@ describe(CharacterContainer, () => {
   });
 
   it('should be able to click "show more" button to see more data', () => {
-    wrapper.instance().handleClick = jest.fn()
-    wrapper.find('.showMoreBtn').simulate('click')
-    expect(wrapper.instance().handleClick).toHaveBeenCalled()
-  })
+    wrapper.instance().handleClick = jest.fn();
+    wrapper.find(".showMoreBtn").simulate("click");
+    expect(wrapper.instance().handleClick).toHaveBeenCalled();
+  });
 });
 
 describe("mapStateToProps", () => {

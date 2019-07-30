@@ -51,9 +51,11 @@ export class CharacterContainer extends Component {
       return character.name.toLowerCase().indexOf(this.state.filtered) !== -1;
     });
 
-    const displayCharacters = filteredCharacters.slice(0, this.state.num).map(char => (
-      <Card info={char} key={char.created} favoriteCard={favoriteCard} />
-    ));
+    const displayCharacters = filteredCharacters
+      .slice(0, this.state.num)
+      .map(char => (
+        <Card info={char} key={char.created} favoriteCard={favoriteCard} />
+      ));
     return (
       <main>
         <article>
@@ -67,9 +69,11 @@ export class CharacterContainer extends Component {
           />
         </article>
         <section className="characters">{displayCharacters}</section>
-        <div className="show-more"><button className="showMoreBtn" onClick={e => this.handleClick(e)}>
-          Show More
-        </button></div>
+        <div className="show-more">
+          <button className="showMoreBtn" onClick={e => this.handleClick(e)}>
+            Show More
+          </button>
+        </div>
       </main>
     );
   }

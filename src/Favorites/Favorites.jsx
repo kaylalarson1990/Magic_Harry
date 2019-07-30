@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const Favorites = ({ favorites, favoriteCard }) => {
   const showFavorites = favorites.map(fav => {
-    console.log(fav)
+    console.log(fav);
     return <Card info={fav} key={fav.created} favoriteCard={favoriteCard} />;
   });
 

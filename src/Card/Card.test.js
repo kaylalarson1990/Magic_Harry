@@ -6,7 +6,7 @@ describe("Card", () => {
   let mockFunc, mockData, instance, wrapper;
   let event = {
     preventDefault: jest.fn()
-  }
+  };
 
   beforeEach(() => {
     mockFunc = jest.fn();
@@ -20,7 +20,7 @@ describe("Card", () => {
     };
     wrapper = shallow(<Card info={mockData} favoriteCard={mockFunc} />);
 
-    instance = wrapper.instance()
+    instance = wrapper.instance();
   });
 
   it("should match snapshot", () => {
@@ -30,10 +30,9 @@ describe("Card", () => {
   it("should set isFlipped state", () => {
     const wrapper = shallow(<Card info={mockData} favoriteCard={mockFunc} />);
 
-    expect(wrapper.state('isFlipped')).toEqual(false)
+    expect(wrapper.state("isFlipped")).toEqual(false);
     instance.handleClick(event);
-    expect(wrapper.state('isFlipped')).toEqual(false)
-
+    expect(wrapper.state("isFlipped")).toEqual(false);
   });
 
   it("should call favorite card on click", () => {

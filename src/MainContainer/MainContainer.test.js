@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import { shallow } from "enzyme";
-import { MainContainer } from './MainContainer';
+import { MainContainer } from "./MainContainer";
 
 describe("MainContainer", () => {
-    let wrapper;
-  
-    beforeEach(() => {
-      wrapper = shallow(<MainContainer />);
-    });
-  
-    it("should match snapshot", () => {
-      expect(wrapper).toMatchSnapshot();
-    });
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<MainContainer />);
+  });
+
+  it("should match snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });

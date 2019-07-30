@@ -14,12 +14,10 @@ describe("Favorites", () => {
     wrapper = shallow(
       <Favorites favorites={mockData} favoriteCard={jest.fn()} />
     );
-    instance = wrapper.instance()
+    instance = wrapper.instance();
   });
 
   it("should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
-
-  
 });

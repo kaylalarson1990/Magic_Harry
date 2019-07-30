@@ -67,12 +67,12 @@ describe("App", () => {
     ).toHaveLength(0);
   });
 
-  it('should add and delete from favorite state', () => {
-    const mockData = [{id: '1', name: 'Kayla'}]
-    expect(wrapper.state('favorites').length).toEqual(0)
-    wrapper.instance().favoriteCard(mockData)
-    expect(wrapper.state('favorites').length).toEqual(1)
-  })
+  it("should add and delete from favorite state", () => {
+    const mockData = [{ id: "1", name: "Kayla" }];
+    expect(wrapper.state("favorites").length).toEqual(0);
+    wrapper.instance().favoriteCard(mockData);
+    expect(wrapper.state("favorites").length).toEqual(1);
+  });
 });
 
 describe("mapDispatchToProps", () => {
