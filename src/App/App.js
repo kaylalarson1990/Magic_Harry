@@ -42,24 +42,25 @@ export class App extends Component {
       .catch(this.setState({ error: "Error fetching wizard data" }));
   }
 
-  favoriteCard = id => {
-    const favoritedCard = [
-      ...this.props.characters,
+  favoriteCard = async id => {
+    const favorites = this.state.favorites;
+    const favoritedCard = await [
       ...this.props.spells,
-      ...this.props.houses
+      ...this.props.houses,
+      ...this.props.characters
     ].find(card => card.id === id);
 
-    favoritedCard.favorite = !favoritedCard.favorite;
-    if (
-      favoritedCard.favorite &&
-      !this.state.favorites.includes(favoritedCard)
-    ) {
+    console.log('fc', favoritedCard)
+
+    if (!favorites.includes(favoritedCard)) {
+      favoritedCard.favorite = !favoritedCard.favorite;
       this.setState({
-        favorites: [...this.state.favorites, favoritedCard]
+        favorites: [...favorites, favoritedCard]
       });
     } else {
+      favoritedCard.favorite = !favoritedCard.favorite;
       this.setState({
-        favorites: this.state.favorites.filter(favorite => favorite.id !== id)
+        favorites: favorites.filter(favorite => favorite.id !== id)
       });
     }
     this.saveToStorage();
@@ -68,6 +69,7 @@ export class App extends Component {
   saveToStorage = () => {
     const { favorites } = this.state;
     let favs = JSON.stringify(favorites);
+    console.log(favs)
     localStorage.setItem("favorites", favs);
   };
 
