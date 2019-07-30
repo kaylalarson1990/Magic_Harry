@@ -1,19 +1,20 @@
-h1, p {
-    text-align: center;
+h1,
+p {
+  text-align: center;
 }
 
 h1 {
-    font-size: 68px;
-    margin-top: 150px;
+  font-size: 68px;
+  margin-top: 150px;
 }
 
 p {
-    font-family: 'Open Sans';
-    font-size: 28px;
-    font-weight: 300;
-    color: #BE0125;
+  font-family: "Open Sans";
+  font-size: 28px;
+  font-weight: 300;
+  color: #be0125;
 }
 
 .wand {
-    width: 25px;
+  width: 25px;
 }

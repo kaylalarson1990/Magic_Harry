@@ -60,11 +60,10 @@ describe("harryPotterHouses", () => {
     mockHouses = [
       {
         founder: "Goderic Gryffindor",
-        headOfHouse: "Minerva McGonagall",
-        houseGhost: "Nearly Headless Nick",
+        "head of house": undefined,
+        "house ghost": undefined,
         id: undefined,
         mascot: "lion",
-        members: ["5a0fa648ae5bc100213c2332"],
         name: "Gryffindor",
         school: "Hogwarts School of Witchcraft and Wizardry"
       }
@@ -105,51 +104,50 @@ describe("harryPotterHouses", () => {
   });
 });
 
-
 describe("harryPotterSpells", () => {
-    let mockSpells;
-  
-    beforeEach(() => {
-      mockSpells = [
-        {
-          effect: "opens objects",
-          id: undefined,
-          spell: "Aberto",
-          type: "Charm"
-        }
-      ];
-  
-      window.fetch = jest.fn().mockImplementation(() => {
-        return Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve(mockSpells)
-        });
+  let mockSpells;
+
+  beforeEach(() => {
+    mockSpells = [
+      {
+        effect: "opens objects",
+        id: undefined,
+        spell: "Aberto",
+        type: "Charm"
+      }
+    ];
+
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockSpells)
       });
-    });
-  
-    it("should be called with the correct params", () => {
-      const expected = [
-        "https://www.potterapi.com/v1/spells/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO"
-      ];
-  
-      harryPotterSpells(mockSpells);
-      expect(window.fetch).toHaveBeenCalledWith(...expected);
-    });
-  
-    it("should return a parsed response if status is ok", async () => {
-      const result = await harryPotterSpells(mockSpells);
-      expect(result).toEqual(mockSpells);
-    });
-  
-    it("should return an error if response is not ok", () => {
-      window.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.resolve({
-          ok: false
-        });
-      });
-  
-      expect(harryPotterSpells()).resolves.toEqual(
-        Error("Error fetching wizard spells")
-      );
     });
   });
+
+  it("should be called with the correct params", () => {
+    const expected = [
+      "https://www.potterapi.com/v1/spells/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO"
+    ];
+
+    harryPotterSpells(mockSpells);
+    expect(window.fetch).toHaveBeenCalledWith(...expected);
+  });
+
+  it("should return a parsed response if status is ok", async () => {
+    const result = await harryPotterSpells(mockSpells);
+    expect(result).toEqual(mockSpells);
+  });
+
+  it("should return an error if response is not ok", () => {
+    window.fetch = jest.fn().mockImplementationOnce(() => {
+      return Promise.resolve({
+        ok: false
+      });
+    });
+
+    expect(harryPotterSpells()).resolves.toEqual(
+      Error("Error fetching wizard spells")
+    );
+  });
+});

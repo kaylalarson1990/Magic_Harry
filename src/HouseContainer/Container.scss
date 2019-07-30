@@ -2,7 +2,9 @@
 // @use postcss-nested;
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700,900");
 
-.houses, .characters, .spells {
+.houses,
+.characters,
+.spells {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +15,6 @@
   display: flex;
   justify-content: center;
 }
-
 
 .title {
   font-size: 62px;

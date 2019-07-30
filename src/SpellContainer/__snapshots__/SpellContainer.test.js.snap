@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SpellContainer should match snapshot 1`] = `
-<Fragment>
+<main>
   <article>
     <h2
       className="title"
@@ -19,12 +19,26 @@ exports[`SpellContainer should match snapshot 1`] = `
   <section
     className="spells"
   >
-    <Spells
-      effect="Puts to sleep on command"
-      key="1"
-      spell="Accio"
-      type="Sleeping spell"
+    <Card
+      info={
+        Object {
+          "effect": "Puts to sleep on command",
+          "id": "1",
+          "spell": "Accio",
+          "type": "Sleeping spell",
+        }
+      }
     />
   </section>
-</Fragment>
+  <div
+    className="show-more"
+  >
+    <button
+      className="showMoreBtn"
+      onClick={[Function]}
+    >
+      Show More
+    </button>
+  </div>
+</main>
 `;

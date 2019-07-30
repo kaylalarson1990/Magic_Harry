@@ -8,6 +8,4 @@ import rootReducer from "./reducers";
 
 const store = createStore(rootReducer, composeWithDevTools());
 
-ReactDOM.render(<Root store={store} />, document.getElementById('root'));
-
-
+ReactDOM.render(<Root store={store} />, document.getElementById("root"));

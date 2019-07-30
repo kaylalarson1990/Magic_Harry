@@ -23,7 +23,7 @@ export class Card extends Component {
       if (key !== "id" && key !== "favorite") {
         cardInfo.push(
           <p className="card-info">
-          <span className="head">{key.toUpperCase()}:</span> {info[key]}
+            <span className="head">{key.toUpperCase()}:</span> {info[key]}
           </p>
         );
       }
@@ -32,8 +32,8 @@ export class Card extends Component {
     return (
       <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
         <article className="card" key="front">
-            <h2>{info.name || info.spell}</h2>
-          <button onClick={this.handleClick}>
+          <h2>{info.name || info.spell}</h2>
+          <button className="flip-card1" onClick={this.handleClick}>
             Click here for more details
           </button>
           <button
@@ -45,7 +45,9 @@ export class Card extends Component {
         </article>
         <article className="card" key="back">
           {cardInfo}
-          <button onClick={this.handleClick}>Return to Front</button>
+          <button className="flip-card2" onClick={this.handleClick}>
+            Return to Front
+          </button>
         </article>
       </ReactCardFlip>
     );

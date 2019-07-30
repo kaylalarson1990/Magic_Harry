@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CharacterContainer should match snapshot 1`] = `
-<Fragment>
+<main>
   <article>
     <h2
       className="title"
@@ -19,14 +19,28 @@ exports[`CharacterContainer should match snapshot 1`] = `
   <section
     className="characters"
   >
-    <Characters
-      house="KlioPold"
-      key="1"
-      name="Kayla"
-      role="student"
-      school="Turing"
-      species="human"
+    <Card
+      info={
+        Object {
+          "house": "KlioPold",
+          "id": "1",
+          "name": "Kayla",
+          "role": "student",
+          "school": "Turing",
+          "species": "human",
+        }
+      }
     />
   </section>
-</Fragment>
+  <div
+    className="show-more"
+  >
+    <button
+      className="showMoreBtn"
+      onClick={[Function]}
+    >
+      Show More
+    </button>
+  </div>
+</main>
 `;

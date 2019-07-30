@@ -4,9 +4,9 @@ import { housesReducer } from "./housesReducer";
 import { spellsReducer } from "./spellsReducer";
 
 export const rootReducer = combineReducers({
-    characters: charactersReducer,
-    houses: housesReducer,
-    spells: spellsReducer
-})
+  characters: charactersReducer,
+  houses: housesReducer,
+  spells: spellsReducer
+});
 
 export default rootReducer;
