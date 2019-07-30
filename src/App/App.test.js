@@ -1,16 +1,18 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { App } from "./App";
+import { CharacterContainer } from "../CharacterContainer/CharacterContainer";
+import { MemoryRouter } from "react-router";
 import { setCharacters, setHouses, setSpells } from "../actions/index";
 import { mapStateToProps, mapDispatchToProps } from "./App";
 
 describe("App", () => {
-  let wrapper, instance, store;
+  let wrapper, instance, mockFunc;
 
   beforeEach(() => {
-    store = 
     wrapper = shallow(<App />);
     instance = wrapper.instance();
+    mockFunc = jest.fn();
   });
 
   it("should match snapshot", () => {
@@ -20,6 +22,56 @@ describe("App", () => {
   it("should render home page", () => {
     expect(instance.homePage()).toMatchSnapshot();
   });
+
+  it("should be able to save to state", () => {
+    const mockData = {
+      error: "Error fetching wizard data",
+      favorites: []
+    };
+    expect(wrapper.state()).toEqual(mockData);
+  });
+
+  it("should save to localStorage", () => {
+    jest.spyOn(window.localStorage.__proto__, "setItem");
+    window.localStorage.__proto__.setItem = jest.fn();
+
+    window.localStorage.__proto__.setItem();
+    expect(localStorage.setItem).toHaveBeenCalled();
+  });
+
+  it("should redirect to 404", () => {
+    const wrapper = shallow(
+      <MemoryRouter initialEntries={["/random"]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(wrapper.find(instance.homePage())).toHaveLength(0);
+  });
+
+  it("should redirect CharacterContainer to 404", () => {
+    const mockProps = [
+      {
+        name: "unknown"
+      }
+    ];
+    const wrapper = shallow(
+      <MemoryRouter initialEntries={["/random"]} initialIndex={0}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(
+      wrapper.find(
+        <CharacterContainer data={mockProps} favoriteCard={mockFunc} />
+      )
+    ).toHaveLength(0);
+  });
+
+  it("should add to favorite state", () => {
+    const mockData = [{ id: "1", name: "Kayla" }];
+    expect(wrapper.state("favorites").length).toEqual(0);
+  });
+
 });
 
 describe("mapDispatchToProps", () => {

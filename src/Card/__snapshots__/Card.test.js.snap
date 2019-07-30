@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match snapshot 1`] = `
+<t
+  cardStyles={
+    Object {
+      "back": Object {},
+      "front": Object {},
+    }
+  }
+  cardZIndex="auto"
+  containerStyle={Object {}}
+  flipDirection="vertical"
+  flipSpeedBackToFront={0.6}
+  flipSpeedFrontToBack={0.6}
+  infinite={false}
+  isFlipped={false}
+>
+  <article
+    className="card"
+    key="front"
+  >
+    <h2>
+      Kayla
+    </h2>
+    <button
+      className="flip-card1"
+      onClick={[Function]}
+    >
+      Click here for more details
+    </button>
+    <button
+      className="favorite-btn undefined"
+      onClick={[Function]}
+    >
+      Favorite
+    </button>
+  </article>
+  <article
+    className="card"
+    key="back"
+  >
+    <p
+      className="card-info"
+    >
+      <span
+        className="head"
+      >
+        NAME
+        :
+      </span>
+       
+      Kayla
+    </p>
+    <p
+      className="card-info"
+    >
+      <span
+        className="head"
+      >
+        ROLE
+        :
+      </span>
+       
+      Student
+    </p>
+    <p
+      className="card-info"
+    >
+      <span
+        className="head"
+      >
+        HOUSE
+        :
+      </span>
+       
+      Apartment
+    </p>
+    <p
+      className="card-info"
+    >
+      <span
+        className="head"
+      >
+        SCHOOL
+        :
+      </span>
+       
+      Turing
+    </p>
+    <p
+      className="card-info"
+    >
+      <span
+        className="head"
+      >
+        SPECIES
+        :
+      </span>
+       
+      Human
+    </p>
+    <button
+      className="flip-card2"
+      onClick={[Function]}
+    >
+      Return to Front
+    </button>
+  </article>
+</t>
+`;

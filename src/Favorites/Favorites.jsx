@@ -1,51 +1,26 @@
 import React from "react";
-import Houses from "../Houses/Houses.jsx";
-import Characters from "../Characters/Characters.jsx";
-import Spells from "../Spells/Spells.jsx";
+import Card from "../Card/Card.jsx";
 import "./Favorites.css";
 import PropTypes from "prop-types";
 
 const Favorites = ({ favorites, favoriteCard }) => {
-  const showFavoriteHouses = favorites.map(favHouse => {
-    return (
-      <Houses
-        info={favHouse}
-        key={favHouse.created}
-        favoritedCard={favoriteCard}
-      />
-    );
-  });
-  const showFavoriteCharacters = favorites.map(favChar => {
-    return (
-      <Characters
-        info={favChar}
-        key={favChar.created}
-        favoritedCard={favoriteCard}
-      />
-    );
-  });
-  const showFavoriteSpells = favorites.map(favSpells => {
-    return (
-      <Spells
-        info={favSpells}
-        key={favSpells.created}
-        favoritedCard={favoriteCard}
-      />
-    );
+  const showFavorites = favorites.map(fav => {
+    return <Card info={fav} key={fav.created} favoriteCard={favoriteCard} />;
   });
 
   return (
-    <main className="fav-container">
-      {!favorites.length ? (
-        <h2 className="favorites">
-          <i /> No Favorites Available
-        </h2>
-      ) : (
-        showFavoriteHouses,
-        showFavoriteCharacters,
-        showFavoriteSpells
-      )}
-    </main>
+    <article>
+      <h2 className="title">Favorites</h2>
+      <section className="fav-container">
+        {!favorites.length ? (
+          <h2 className="favorites">
+            <i /> No Favorites Available
+          </h2>
+        ) : (
+          showFavorites
+        )}
+      </section>
+    </article>
   );
 };
 

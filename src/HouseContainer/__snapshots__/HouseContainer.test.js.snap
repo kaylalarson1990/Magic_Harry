@@ -19,14 +19,18 @@ exports[`HouseContainer should match snapshot 1`] = `
   <section
     className="houses"
   >
-    <Houses
-      founder="Sergio"
-      headOfHouse="Klio Pold"
-      houseGhost="Dobby"
-      key="1"
-      mascot="Bengal"
-      name="Kayla"
-      school="Turing"
+    <Card
+      info={
+        Object {
+          "founder": "Sergio",
+          "headOfHouse": "Klio Pold",
+          "houseGhost": "Dobby",
+          "id": "1",
+          "mascot": "Bengal",
+          "name": "Kayla",
+          "school": "Turing",
+        }
+      }
     />
   </section>
 </Fragment>

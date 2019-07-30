@@ -1,9 +1,8 @@
 import { cleanCharacters, cleanHouses, cleanSpells } from "./Cleaner";
+import { key } from "./apiKey";
 
 export const harryPotterCharacters = () => {
-  return fetch(
-    "https://www.potterapi.com/v1/characters/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO"
-  )
+  return fetch(`https://www.potterapi.com/v1/characters/?key=${key}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(response);
@@ -16,9 +15,7 @@ export const harryPotterCharacters = () => {
 };
 
 export const harryPotterHouses = () => {
-  return fetch(
-    "https://www.potterapi.com/v1/houses/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO"
-  )
+  return fetch(`https://www.potterapi.com/v1/houses/?key=${key}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(response);
@@ -31,9 +28,7 @@ export const harryPotterHouses = () => {
 };
 
 export const harryPotterSpells = () => {
-  return fetch(
-    "https://www.potterapi.com/v1/spells/?key=$2a$10$hxctXuUXNqCUal8Ok52W0eowhhCv1ePELQwL1D52uypzZRjVKg4kO"
-  )
+  return fetch(`https://www.potterapi.com/v1/spells/?key=${key}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(response);

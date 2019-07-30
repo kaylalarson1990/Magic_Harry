@@ -10,7 +10,7 @@ describe(SpellContainer, () => {
         id: "1",
         spell: "Accio",
         type: "Sleeping spell",
-        effect: "Puts to sleep on command",
+        effect: "Puts to sleep on command"
       }
     ];
 
@@ -32,11 +32,18 @@ describe(SpellContainer, () => {
 
     const expected = {
       error: "",
-      filtered: "Kayla"
+      filtered: "Kayla",
+      num: 30
     };
 
     wrapper.instance().handleChange(mockEvent);
     expect(wrapper.state()).toEqual(expected);
+  });
+
+  it('should be able to click "show more" button to see more data', () => {
+    wrapper.instance().handleClick = jest.fn();
+    wrapper.find(".showMoreBtn").simulate("click");
+    expect(wrapper.instance().handleClick).toHaveBeenCalled();
   });
 });
 
