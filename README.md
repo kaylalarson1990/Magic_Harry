@@ -74,5 +74,7 @@ Then, go to http://localhost:3001/ in your browser to see the code running in th
 ### React Flip for cards:
 ![Screen Shot 2019-07-29 at 8 10 49 PM](https://user-images.githubusercontent.com/37026730/62095367-70feb280-b23d-11e9-99e1-1909d25e37cc.png)
 
+(https://media.giphy.com/media/dyXTRp73deYAOGOt9V/giphy.gif)
+
 ### Show More Button:
 ![Screen Shot 2019-07-29 at 8 10 30 PM](https://user-images.githubusercontent.com/37026730/62095368-72c87600-b23d-11e9-862f-d8d85d9d8b70.png)
