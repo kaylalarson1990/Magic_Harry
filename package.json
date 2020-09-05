@@ -5,7 +5,7 @@
   "dependencies": {
     "enzyme-adapter-react-15": "^1.4.0",
     "local-storage": "^2.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.8.6",
     "react-card-flip": "^0.8.1",
     "react-dom": "^16.8.6",
